@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
+from config import MONGO_URL
 from pymongo import MongoClient, GEOSPHERE
 
-mongo_url = 'mongodb://127.0.0.1:27017/addressbase-data'
-client = MongoClient(mongo_url)
+client = MongoClient(MONGO_URL)
 db = client.get_default_database()
 
 address = db["address"]
