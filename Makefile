@@ -1,11 +1,11 @@
-#
-#  import addressbase-data into Mongo
-#  - uses GNU parallel
-#
 DATA=../addressbase-data/data
 
 all: flake8
 
+#
+#  import addressbase-data into Mongo
+#  - uses GNU parallel
+#
 import: import-streets import-addresses indexes
 
 import-streets:
