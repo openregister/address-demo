@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 16px;
+}
+
+dl {
+  margin-bottom: 1em;
+}
+
+.extra {
+  border-top: 1px dotted grey;
+  margin-right: 4em;
+}
+
+dt {
+  margin-top: 1em;
+  color: #6f777b;
+  font-weight: lighter;
+  font-family: "Courier New", "Courier";
+}
+
+dd {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+a {
+  color: #005ea5;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #4c2c92;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+pre {
+  margin: 1em 0;
+  font-weight: lighter;
+  white-space: pre-wrap;
+  font-family: "Courier New", "Courier";
+  background-color: #f7f7f7;
+  font-size: 0.75em;
+  line-height: 1.5em;
+}
+
+/*
+ *  table
+ */
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+tr.school {
+  background-color: #eea;
+}
+
+tr.byhand {
+  background-color: #eee;
+}
+
+tr.matched {
+  background-color: #fff;
+}
+
+/*
+ *  map
+ */
+#map-canvas {
+  width: 100%;
+  height: 256px;
+  position: fixed;
+}
+
+.leaflet-div-icon {
+  background: red;
+  border-radius: 6px;
+  border: none;
+  text-align: right;
+}
+
+.leaflet-div-icon:hover {
+   background: black;
+}
+
+.address-icon {
+  background-color: red;
+}
+
+.street-icon {
+  background-color: blue;
+}
+
+/*
+ *  layout ..
+ */
+#pagewrap {
+  padding-top: 256px;
+  width: 94%;
+  margin: 0 auto;
+}
+
+#pagewrap.nomap {
+  padding-top: 1em;
+}
+
+footer {
+  padding-top: 2.5em;
+  clear: both;
+}
+
+aside dd {
+  font-size: 14px;
+}
+
+aside {
+  clear: both;
+}
+
+
+@media screen and (min-width: 600px) {
+
+  section {
+    width: 50%;
+    float: left;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  #address, #locality, #town, #administrative-area {
+    width: 40%;
+  }
+
+  section {
+    width: 40%;
+    float: left;
+  }
+
+  aside {
+    width: 20%;
+    float: right;
+    clear: none;
+  }
+
+  .extra {
+    margin-top: 4em;
+  }
+}

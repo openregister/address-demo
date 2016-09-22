@@ -1,0 +1,53 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script>
+  var map = L.map('map-canvas', {
+      fullscreenControl: {
+        pseudoFullscreen: true
+      }});
+
+  var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  var googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      attribution: 'Imagery &copy;2016 Getmapping plc, Google, Map data &copy;2016 Google',
+      subdomains:['mt0','mt1','mt2','mt3']
+  });
+
+  var googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains:['mt0','mt1','mt2','mt3']
+  });
+
+  var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+  });
+
+  L.control.layers({
+    'Leaflet': osmLayer,
+    "Google": googleStreets,
+    "Google Satellite": googleSat,
+    "Esri World Imagery": Esri_WorldImagery
+  }).addTo(map);
+
+  map.scrollWheelZoom.disable();
+
+  var markers = [];
+
+  adot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'address-icon'});
+  {% for a in addresses %}
+    marker = L.marker({{ a['ll']}}, {icon: adot}).addTo(map).bindPopup('<a href="/address/{{a['address']}}">{{ a['name'] }}{%if a['primary-name']%}, {{a['primary-name']}}{%endif%}</a>');
+    markers.push(marker);
+  {% endfor %}
+
+  sdot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'street-icon'});
+  {% for s in streets %}
+    marker = L.marker({{ s['ll']}}, {icon: sdot}).addTo(map).bindPopup('<a href="/street/{{s['street']}}">{{ s['name'] }}</a>');
+    markers.push(marker);
+  {% endfor %}
+
+  var group = new L.featureGroup(markers);
+  map.fitBounds(group.getBounds());
+</script>

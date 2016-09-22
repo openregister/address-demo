@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% include '_map_link.html' %}
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div id="map-canvas"></div>
+<div id="pagewrap">
+<table>
+  <tr>
+    <th>school ({{ schools|length }})</th>
+    <th>addresses ({{ addresses|length }})</th>
+    <th>address ({{ matches }}/{{ byhand }})</th>
+  </tr>
+  {% for s in schools %}
+    <tr class="school {{ s['address-match'] }}">
+      <td><a href="http://www.education.gov.uk/edubase/establishment/summary.xhtml?urn={{ s['school-eng'] }}">{{ s['name'] }}</a></td>
+      <td><a href="/address/{{ s['address'] }}">{{ s['address'] }}</a></td>
+      <td>{{ s['address-name'] }} </td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+
+{% include '_map.html' %}
+</body>
+</html>

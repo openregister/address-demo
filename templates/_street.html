@@ -1,0 +1,44 @@
+<dl>
+  <dt>street</dt>
+  <dd><a href="/street/{{street['street']}}">{{street['street']}}</a></dd>
+
+  <dt>name</dt>
+  <dd><a href="/streets/name/{{street['name']}}">{{street['name']}}</a></dd>
+
+  {% if street['locality'] %}
+  <dt>locality</dt>
+  <dd><a href="/streets/locality/{{street['locality']}}">{{street['locality']}}</a></dd>
+  {% endif %}
+
+  <dt>town</dt>
+  <dd><a href="/streets/town/{{street['town']}}">{{street['town']}}</a></dd>
+
+  <dt>administrative-area</dt>
+  <dd><a href="/streets/administrative-area/{{street['administrative-area']}}">{{street['administrative-area']}}</a></dd>
+
+  {% if street['street-custodian'] %}
+  <dt>street-custodian</dt>
+  <dd><a href="/streets/street-custodian/{{street['street-custodian']}}">{{street['street-custodian']}}</a></dd>
+  {% endif %}
+
+  {% if street['point'] %}
+  <dt>point</dt>
+  <dd><a href="https://maps.google.com/maps?ll={{street['ll']|replace('[','')|replace(']','')}}&amp;hl=en&amp;z=18&amp;t=k" target="_blank">{{street['point']}}</a></dd>
+  {% endif %}
+
+  {% if street['start-date'] %}
+  <dt>start-date</dt>
+  <dd>{{street['start-date']}}</dd>
+  {% endif %}
+
+  {% if street['end-date'] %}
+  <dt>end-date</dt>
+  <dd>{{street['end-date']}}</dd>
+  {% endif %}
+
+  {% if street['entry-timestamp'] %}
+  <dt>entry-timestamp</dt>
+  <dd>{{street['entry-timestamp']}}</dd>
+  {% endif %}
+
+</dl>

@@ -1,0 +1,10 @@
+<dl>
+<dt>addresses ({{ addresses|length }})</dt>
+<dd>
+  <ul>
+  {% for a in addresses %}
+    <li><a href="/address/{{ a['address'] }}">{{ a['name'] }}</a>{% if a['parent-address'] %}, <a href="/address/{{ a['parent-address'] }}">{{ a['parent-address'] }}</a>{% endif %}</a>
+  {% endfor %}
+  </ul>
+</dd>
+</dl>

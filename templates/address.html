@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% include '_map_link.html' %}
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div id="map-canvas"></div>
+<div id="pagewrap">
+  <section>
+    {% include '_address.html' %}
+  </section>
+  <section>
+    {% include '_street.html' %}
+  </section>
+  <aside>
+    <dl>
+      <dt>uprn</dt>
+      <dd><a href="/uprn/{{uprn}}" title="UPRN">{{uprn}}</a></dd>
+
+      <dt>source</dt>
+      <dd>{{address['source']}}</dd>
+
+      {% if postcode %}
+      <dt>postcode</dt>
+      <dd><a href="/addresses/postcode/{{postcode}}">{{postcode}}</a></dd>
+      {% endif %}
+
+      {% if premises %}
+      <dt>PREMISES</dt>
+      <dd><a href="{{ premises['url'] }}" title="VOA premises">{{ premises['premises'] }}</a></dd>
+      {% endif %}
+    </dl>
+    <dl>
+    <dt>hierarchy</dt>
+    <dd>
+    <ul>
+      {% for a in children %}
+      <li><a href="/address/{{ a['address'] }}">{{ a['name'] }}</a>
+      {% endfor %}
+
+      <li class="this">{{ address['name'] }}
+
+      {% for a in parents %}
+      <li><a href="/address/{{ a['address'] }}">{{ a['name'] }}</a>
+      {% endfor %}
+    </ul>
+    </dd>
+    </dl>
+  </aside>
+</div>
+
+{% include '_map.html' %}
+</body>
+</html>

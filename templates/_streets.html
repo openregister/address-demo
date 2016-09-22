@@ -1,0 +1,14 @@
+<dl>
+<dt>streets ({{ streets|length }})</dt>
+<dd>
+  <ul>
+  {% for s in streets %}
+  <li>
+  <a href="/street/{{ s['street'] }}">{{ s['name'] }}</a>{%if s['locality'] %},
+    <a href="/streets/locality/{{ s['locality'] }}">{{ s['locality'] }}</a>{% endif %}{%if s['town'] %},
+    <a href="/streets/town/{{ s['town'] }}">{{ s['town'] }}</a>{% endif %}{%if s['administrative-area'] %},
+    <a href="/streets/administrative-area/{{ s['administrative-area'] }}">{{ s['administrative-area'] }}</a>{% endif %}
+  {% endfor %}
+  </ul>
+</dd>
+</dl>

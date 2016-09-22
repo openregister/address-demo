@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ street_custodian['name'] }} :: {{ street_custodian['street-custodian'] }} :: Street custodian</title>
+  {% include '_map_link.html' %}
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+<div id="map-canvas"></div>
+<div id="pagewrap">
+  <section>
+    {% include '_street_custodian.html' %}
+  </section>
+  <aside>
+    {% include '_streets.html' %}
+  </aside>
+</div>
+
+{% include '_map.html' %}
+</body>
+</html>

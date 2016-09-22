@@ -1,0 +1,48 @@
+<dl>
+  <dt>address</dt>
+  <dd>{{address.address}}</dd>
+
+  <dt>name</dt>
+  <dd><a href="/addresses/name/{{address['name']}}">{{address.name}}</a></dd>
+
+  {% if address['street'] %}
+  <dt>street</dt>
+  <dd><a href="/street/{{address['street']}}">{{address['street']}}</a></dd>
+  {% endif %}
+
+  {% if address['parent-address'] %}
+  <dt>parent-address</dt>
+  <dd><a href="/address/{{address['parent-address']}}">{{address['parent-address']}}</a></dd>
+  {% endif %}
+
+  {% if address['primary-address'] %}
+  <dt>primary-address</dt>
+  <dd><a href="/address/{{address['primary-address']}}">{{address['primary-address']}}</a></dd>
+  {% endif %}
+
+  {% if address['point'] %}
+  <dt>point</dt>
+  <dd><a href="https://maps.google.com/maps?ll={{ address['ll']|replace('[','')|replace(']','') }}&amp;hl=en&amp;z=18&amp;t=k" target="_blank">{{ address['point'] }}</a></dd>
+  {% endif %}
+
+  {% if street['street-custodian'] %}
+  <dt>street-custodian</dt>
+  <dd><a href="/street-custodian/{{street['street-custodian']}}">{{street['street-custodian']}}</a></dd>
+  {% endif %}
+
+  {% if address['entry-date'] %}
+  <dt>timestamp</dt>
+  <dd>{{ address['entry-date'] }}</dd>
+  {% endif %}
+
+  {% if address['end-date'] %}
+  <dt>end-date</dt>
+  <dd>{{ address['end-date'] }}</dd>
+  {% endif %}
+
+  {% if street['entry-timestamp'] %}
+  <dt>entry-timestamp</dt>
+  <dd>{{ street['entry-timestamp'] }}</dd>
+  {% endif %}
+</dl>
+
