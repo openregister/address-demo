@@ -58,11 +58,11 @@ school-eng	name	address	address-match
 117120	Knebworth Primary and Nursery School	9C3H3W0	
 117121	Wilbury Junior School	2X6MXM4C	
 117122	Grange Junior School	2X6MXMAX	
-117123	Hillshott Infant School and Nursery	2X6MXKC1	
+117123	Hillshott Infant School and Nursery	2X6MXKC1	byhand
 117124	Westbury Primary and Nursery School	9APZHC2	
 117125	Hertford Heath Primary and Nursery School	9B09MHA	
 117126	Little Hadham Primary School	9B09XQM	
-117127	Markyate Village School and Nursery	5T8JQERT	
+117127	Markyate Village School and Nursery	5T8JQERT	byhand
 117128	Pirton School	5T8GM5Z6	
 117129	Reed First School	2X6MXNM0	
 117130	Yorke Mead Primary School	5T8FRBSD	
@@ -124,9 +124,9 @@ school-eng	name	address	address-match
 117186	Icknield Infant and Nursery School	2X6MXM4M	
 117187	Bowmansgreen Primary School	5T8JAMAR	
 117188	Margaret Wix Primary School	5T8JAM3C	
-117189	Broom Barns Community Primary School	9ADG70X	
+117189	Broom Barns Community Primary School	9C3QMW8	byhand
 117190	Lea Farm Junior School		
-117191	Alban Wood Junior School		
+117191	Alban Wood Junior School	5T8FR162	 byhand
 117192	Little Furze Junior Mixed and Infant School		
 117193	Greenfields Primary School	2X6MYCZB	byhand
 117194	Woodhall Primary School	5T8FR714	
@@ -153,7 +153,7 @@ school-eng	name	address	address-match
 117215	Broadfield Junior School	5T8JQEN7	
 117216	Broadfield Infants' School	2X6MV4MW	
 117217	Windermere Primary School	2X6MTAYM	
-117218	Anstey First School	9B1RAP4	
+117218	Anstey First School	9B1RAP4	byhand
 117219	Monksmead School	9AE03VX	
 117220	Howe Dell Primary School	9AE9DVC	
 117221	Almond Hill Junior School	5T8FDH6F	
@@ -198,7 +198,7 @@ school-eng	name	address	address-match
 117260	Swing Gate Infant School and Nursery	2X6MVB3M	byhand
 117261	Oaklands Primary School	2X6MTFVS	
 117262	Flamstead End Infant and Nursery School	4D4PHZ	
-117263	Hollybush Primary School	9B09VVZ	
+117263	Hollybush Primary School	9B09VVZ	byhand
 117264	Oughtonhead Junior School	5T8GM5Z3	
 117265	Oughtonhead Infants' School	5T8GM5Z3	
 117266	Maple Cross Junior Mixed Infant and Nursery School	5T8FR8QR	
@@ -207,11 +207,11 @@ school-eng	name	address	address-match
 117269	Moss Bury Primary School and Nursery	9C3QP1W	
 117270	Westfield Community Primary School	4D5ZBM	
 117271	Priors Wood Primary School	2X6MXAJ9	
-117272	Brookland Infant and Nursery School	4D559A	
+117272	Brookland Infant and Nursery School	4D5THA	byhand
 117273	Summercroft Infant and Nursery School	9B09V9Y	
 117274	Goldfield Infants' and Nursery School	5T8JQEW6	
 117275	Tower Primary School	9B09WW3	
-117276	Greenway Primary and Nursery School		
+117276	Greenway Primary and Nursery School	2X6MVBEG	byhand
 117277	Thorn Grove Primary School	2X6MTM1G	
 117278	Icknield Walk First School	2X6MXNF3	
 117279	Cunningham Hill Infant School	9AQQSA0	
@@ -222,7 +222,7 @@ school-eng	name	address	address-match
 117284	Forres Primary School	4D5JF9	
 117285	Martins Wood Primary School	2X6MX9VD	
 117286	Dundale Primary School and Nursery		
-117287	Crabtree Junior School	2X6MTFQN	
+117287	Crabtree Junior School	2X6MTFQN	byhand
 117288	Redbourn Junior School	2X6MTDTD	
 117289	Arnett Hills Junior Mixed and Infant School	5T8FR8CN	
 117290	Holywell Primary School	5T8FR0E4	
@@ -237,7 +237,7 @@ school-eng	name	address	address-match
 117299	Round Diamond Primary School	9ADX0GP	
 117300	Hartsbourne Primary School	9B1AK05	
 117301	Beech Hyde Primary School and Nursery		
-117302	Andrews Lane Primary School	4D5ZRZ	
+117302	Andrews Lane Primary School	4D4Q89	byhand
 117303	Newberries Primary School	9B1AHFF	
 117304	Rickmansworth Park Junior Mixed and Infant School	5T8FR92K	
 117305	Mandeville Primary School	9B09WF3	
@@ -247,13 +247,13 @@ school-eng	name	address	address-match
 117309	Millfield First and Nursery School	2X6MXNXS	
 117310	Hillmead Primary School	9B09Q1V	
 117311	Nascot Wood Junior School	5T8FR16E	
-117312	Crabtree Infants' School	2X6MTFQN	
+117312	Crabtree Infants' School	2X6MTFQ9	byhand
 117313	The Ryde School	5T8JHC95	byhand
 117314	William Ransom Primary School	5T8GM5Z0	
 117315	Prae Wood Primary School	2X6MTD7F	
 117316	The Giles Infant and Nursery School	5T8FDH1E	
 117317	Kingsway Infants' School	5T8FR163	
-117318	Alban Wood Infant and Nursery School	2X6MYGZD	
+117318	Alban Wood Infant and Nursery School	2X6MYGZD	byhand
 117319	Kingshill Infant School	5T8HG06K	
 117320	Laurance Haines School	5T8FR3MT	
 117321	Woodside Primary School	4D4KHF	
@@ -288,9 +288,9 @@ school-eng	name	address	address-match
 117350	Lannock Primary School	9C3H64A	
 117351	Ryelands Primary School	4D5GPC	
 117352	Ashtree Primary School and Nursery	9C3QPDM	
-117353	Sheredes Primary School	4D5BFS	
+117353	Sheredes Primary School	4D5BFS	byhand
 117354	Radburn Primary School	2X6MXKK5	
-117355	Applecroft School	2X6MTHMA	
+117355	Applecroft School	2X6MTHMA	byhand
 117356	Ley Park Primary School	4D59VX	
 117357	Five Oaks Primary and Nursery School	2X6MTBF0	
 117358	Wood End School	2X6MTFBZ	
@@ -305,7 +305,7 @@ school-eng	name	address	address-match
 117367	Burleigh Primary School	4D4WFP	
 117368	Hobbs Hill Wood Primary School	2X6MVA3W	
 117369	Cranborne Primary School	9AE03PB	
-117370	Ladbrooke Junior Mixed and Infant School	9B1AKBC	
+117370	Ladbrooke Junior Mixed and Infant School	9B1AKBC	byhand
 117371	Oakmere Primary School	9B1AJKB	
 117372	Sunny Bank Junior School		
 117373	Sunny Bank Infants' School		
@@ -317,7 +317,7 @@ school-eng	name	address	address-match
 117379	Millbrook School	4D4TB6	
 117380	Manor Fields Primary School	2X6MTKPQ	
 117381	Bellgate Primary School	5T8JQF4Y	
-117382	Aldbury Church of England Primary School	2X6MV8DA	
+117382	Aldbury Church of England Primary School	2X6MV8DA	byhand
 117383	St John's Church of England Infant and Nursery School	9B1AHEP	
 117384	St Mary's Infants' School	9APZMWE	
 117385	St Mary's Junior Mixed School	9APZMWE	
@@ -339,7 +339,7 @@ school-eng	name	address	address-match
 117401	Ickleford Primary School	9C3H9EJ	
 117402	Little Munden Church of England Voluntary Controlled Primary School	9B1N3BC	
 117403	Preston Primary School	9C3H4EC	
-117404	Sarratt Church of England Primary School	9A1SV6E	
+117404	Sarratt Church of England Primary School	5T8FRA17	byhand
 117405	Spellbrook Primary School	9B09PAV	
 117406	Roger De Clare First CofE School	9B09WFN	
 117407	St Andrew's Church of England Voluntary Controlled Primary School	9B09WH6	
@@ -354,9 +354,9 @@ school-eng	name	address	address-match
 117416	Leverstock Green Church of England Primary School	9AQK0QK	
 117417	St Paul's Church of England Primary School, Langleybury	9A1STCM	
 117418	Nash Mills Church of England Primary School	5T8JQ82D	
-117419	Albury Church of England Voluntary Aided Primary School	2X6MXA42	
-117420	Ardeley St Lawrence Church of England Voluntary Aided Primary School		
-117421	Aston St Mary's Church of England Aided Primary School	9B09TW7	
+117419	Albury Church of England Voluntary Aided Primary School	2X6MXA42	byhand
+117420	Ardeley St Lawrence Church of England Voluntary Aided Primary School	9B1RA8S	byhand
+117421	Aston St Mary's Church of England Aided Primary School	9B09TW7	byhand
 117422	Barkway VA Church of England First School	2X6MXNK3	
 117423	Victoria Church of England Infant and Nursery School	5T8JQ7K1	
 117424	St Mary's CofE Primary School, Northchurch	5T8JQGB2	
@@ -365,7 +365,7 @@ school-eng	name	address	address-match
 117427	St Clement's Church of England Voluntary Aided Junior School	4D609B	
 117428	Holy Trinity Church of England Primary School	4D5QTZ	
 117429	St Joseph's Catholic Primary School	4D51HB	
-117430	All Saints Church of England Voluntary Aided Primary School, Datchworth	9B09VQ6	
+117430	All Saints Church of England Voluntary Aided Primary School, Datchworth	9B09VQ6	byhand
 117431	St Nicholas Elstree Church of England VA Primary School	9B1AHZ8	
 117432	St John the Baptist Voluntary Aided Church of England Primary School	9B09VQM	
 117433	Great Gaddesden Church of England Primary School	9A2N3ZG	
@@ -407,7 +407,7 @@ school-eng	name	address	address-match
 117469	St Philip Howard Catholic Primary School	2X6MTBE4	
 117470	St Adrian Roman Catholic Primary School	5T8JAQT5	
 117471	Saint Albert the Great Catholic Primary School	5T8JQE5F	
-117472	All Saints Church of England Primary School and Nursery, Bishop's Stortford	2X6MTM1E	
+117472	All Saints Church of England Primary School and Nursery, Bishop's Stortford	2X6MTM1E	byhand
 117473	Christ Church CofE (VA) Primary School and Nursery, Ware	2X6MXAE3	
 117474	St Margaret Clitherow Roman Catholic Primary School	9C3QNHJ	
 117475	St John Catholic Primary School	5T8FR8CM	
@@ -417,7 +417,7 @@ school-eng	name	address	address-match
 117479	St Thomas More Roman Catholic Voluntary Aided Primary School	2X6MVBEF	
 117480	St John Fisher Roman Catholic Primary School	5T8JAK3D	
 117481	The Holy Family Catholic Primary School	5T8HFFSD	
-117482	Countess Anne Voluntary Aided Church of England Primary School, Hatfield	5T8JHCB9	
+117482	Countess Anne Voluntary Aided Church of England Primary School, Hatfield	5T8JH8CZ	byhand
 117483	St Cross Catholic Primary School	4D5EF8	
 117484	St Rose's Catholic Infants School	2X6MTS96	
 117485	Divine Saviour Roman Catholic Primary School	5T8FRBGB	
@@ -450,7 +450,7 @@ school-eng	name	address	address-match
 117512	Adeyfield School	2X6MV4HS	
 117513	Norton School		
 117514	Beaumont School	2X6MTE5Z	
-117515	Barclay School	2X6N0357	
+117515	Barclay School	2X6N0357	byhand
 117516	Hawksmoor School	9AE03ZP	
 117517	The Heathcote School	2X6MXG43	
 117518	Barnwell School	2X6MXG42	
@@ -476,7 +476,7 @@ school-eng	name	address	address-match
 117538	Sheredes School	4D5BSY	
 117539	Meridian School	2X6MXNC2	
 117540	Freman College	2X6MXP1R	
-117541	Bridgewater Primary School	5T8JQEGB	
+117541	Bridgewater Primary School	5T8JQEGB	byhand
 117542	The Greneway School	2X6MXNC1	
 117543	Ralph Sadleir Middle School	9B09WFN	
 117544	Furzehill Middle School		
@@ -535,7 +535,7 @@ school-eng	name	address	address-match
 117597	The John Warner School	4D5J74	
 117598	Hockerill Anglo-European College	9B09QK4	
 117599	Holmshill School	9B1AJ17	
-117600	Abbot's Hill School	2X6MS52Y	
+117600	Abbot's Hill School	2X6MZSBC	byhand
 117601	Edge Grove School		
 117602	The Aldenham Foundation	9B1AK1W	
 117603	Berkhamsted School for Girls	2X6MVB5T	
@@ -557,7 +557,7 @@ school-eng	name	address	address-match
 117619	Northfield School		
 117620	Beechwood Park School	5T8JQ7WB	
 117621	Heath Mount School	9B09XVA	
-117622	Sherrardswood School	5T8JHE7M	
+117622	Sherrardswood School	5T8JHE7M	byhand
 117623	Egerton-Rothesay School	2X6MVBCY	
 117624	St Hilda's School		
 117625	Westwood School		
@@ -566,12 +566,12 @@ school-eng	name	address	address-match
 117628	Duncombe School	9B09W8M	
 117629	St Joseph's in the Park	9B1N3RZ	
 117630	Kingshott School	9C3H9WD	
-117631	Rudolf Steiner School	9AQJZR8	
+117631	Rudolf Steiner School	2X6MYKBT	byhand
 117632	The Barn School	9B09WAV	
 117633	St Edmund's College	9B09SPZ	
 117634	Hart House School		
 117635	Charlotte House Preparatory School		
-117636	York House School		
+117636	York House School	2X6MYJ7Z	byhand
 117637	Homewood Independent School	5T8JAQSS	
 117638	St Columba's College	2X6MTCZY	
 117639	Francis House Preparatory School	2X6MZ9W3	
@@ -602,7 +602,7 @@ school-eng	name	address	address-match
 117665	St Elizabeth's School		
 117666	Knightsfield School	5T8JHA3Z	
 117667	Garston Manor School	5T8FR09X	
-117668	Boxmoor House School	9A2N551	
+117668	Boxmoor House School	9A2N551	byhand
 117669	The Valley School	5T8FDH0D	
 117670	Colnbrook School	2X6MYD37	
 117671	St Luke's School	2X6MTDT8	
@@ -672,9 +672,9 @@ school-eng	name	address	address-match
 129150	Pope Pius XII RC Primary School		
 129151	Maragaret Dane School		
 129152	Hadham Hall School		
-129153	Hitchin School		
+129153	Hitchin School		byhand
 129154	Durrants School		
-129155	Sir James Altham School		
+129155	Sir James Altham School		byhand
 129156	Hatfield School		
 129157	Thomas Alleynes School		
 129158	Bowes Lyon High School		
@@ -691,7 +691,7 @@ school-eng	name	address	address-match
 129169	Thomas Bourne CofE Middle School		
 129170	Roasry Priory High School		
 129171	Lyndale School		
-129172	Sherrardswood Junior School		
+129172	Sherrardswood Junior School		byhand
 129173	Rosary Priory Preparatory School		
 129174	Pamela Gardens School		
 129176	Marlin Montessori School		
@@ -725,7 +725,7 @@ school-eng	name	address	address-match
 131188	Bovingdon Primary School	2X6MV9XY	
 131319	Haywood Grove School	2X6MV5B0	
 131456	Clore Shalom School	9B1AK53	
-131503	Larwood School	2X6N035B	
+131503	Larwood School	2X6MX9RF	byhand
 131505	Featherstone Wood Primary School	9ADG70Y	
 131651	Hertsmere Jewish Primary School		
 131955	Hertsmere Jewish Primary School	9B1AHEF	
@@ -750,7 +750,7 @@ school-eng	name	address	address-match
 134488	Littlebury Resource Centre	4D5QVY	
 134682	Windhill School	2X6MTKCB	
 134684	Berrygrove Primary and Nursery School	9A95Y4M	
-134685	Alban Wood Primary School and Nursery	2X6MYGZD	
+134685	Alban Wood Primary School and Nursery	2X6MYGZD	byhand
 134716	De Havilland Primary School	2X6MTBF0	
 134786	Village Montessori	9A2N6TH	
 134933	International Stanborough School		
@@ -812,7 +812,7 @@ school-eng	name	address	address-match
 137914	Saint Joan of Arc Catholic School		
 137922	Saint Michael's Catholic High School		
 137938	Nicholas Breakspear Catholic School	2X6MTE5Y	
-137943	Applecroft School	2X6MTHMA	
+137943	Applecroft School	2X6MTHMA	byhand
 137985	Presdales School	2X6MXAZE	
 137997	Woolgrove School, Special Needs Academy	2X6MXKK6	
 138042	The Marlborough Science Academy	2X6MT9S6	
@@ -822,7 +822,7 @@ school-eng	name	address	address-match
 138206	Fleetville Infant and Nursery School	2X6MTAHR	
 138215	The Wroxham School	9B1AJKR	
 138225	The Da Vinci Studio School of Science and Engineering	2X6MX8Y4	
-138231	Alban City School	5T8GN26J	
+138231	Alban City School	5T8GN26J	byhand
 138286	Beaumont School	2X6MTE5Z	
 138288	St Catherine of Siena Catholic Primary School	5T8FR6JX	
 138292	St Mary Roman Catholic Primary School	2X6MXNF8	
@@ -855,16 +855,16 @@ school-eng	name	address	address-match
 139902	The Da Vinci Studio School of Creative Enterprise		
 140037	The Thomas Alleyne School	9C3QN4X	
 140049	Westfield Academy	2X6MYE5R	
-140238	Countess Anne Church of England School	5T8JHCB9	
+140238	Countess Anne Church of England School	5T8JH8CZ	byhand
 140249	Ralph Sadleir School	9B09WFN	
 140294	Simon Balle All-Through School	2X6MXBT7	
 140611	Wilshere-Dacre Junior Academy	9C3H8GG	
-140707	Crabtree Infants' School	2X6MTFQN	
-140708	Crabtree Junior School	2X6MTFQN	
+140707	Crabtree Infants' School	2X6MTFQ9	byhand
+140708	Crabtree Junior School	2X6MTFQN	byhand
 140786	The Hertfordshire & Essex High School and Science College	2X6MZTDB	
 140954	Lanchester Community Free School		
 140955	Jupiter Community Free School	2X6MV4WB	
-140956	Ascot Road Community Free School		
+140956	Ascot Road Community Free School	9CPSCH5	byhand
 141004	The Watford UTC		
 141251	Pinewood School	2X6MZT45	
 141851	Windhill21	2X6MTKCB	
@@ -874,6 +874,6 @@ school-eng	name	address	address-match
 142257	Hailey Hall School	4D5CKW	
 142413	Garden City Montessori School		
 142862	Yavneh Primary School		
-143131	Sheredes School		
+143131	Sheredes School	4D5BSY	
 143409	Roselands Primary School		
 143410	The Cranbourne Primary School		
