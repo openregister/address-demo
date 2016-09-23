@@ -54,7 +54,7 @@ def street_addresses(usrn):
 def address_parents(address):
     parents = []
     while address['parent-address']:
-        address = latest(mongo.db.address.find({'address': address['parent-address']}))
+        address = latest(llist(mongo.db.address.find({'address': address['parent-address']})))
         parents.append(address)
     return parents
 
@@ -100,6 +100,7 @@ def _address(key):
 
     children = sorted_naturally(llist(mongo.db.address.find({'parent-address': key})))
     parents = address_parents(address)
+    print(parents)
 
     addresses = addresses + children + parents
 
@@ -158,7 +159,8 @@ def n7e(s):
     s = re.sub('[\'\"]', '', s)
     s = re.sub('[\-]', ' ', s)
     s = re.sub('infants', 'infant', s)
-    s = re.sub('junior mixed and infant', 'jmi', s)
+    s = re.sub('junior mixed and infant', ' jmi', s)
+    s = re.sub(' c e ', 'cofe', s)
     ignore = ['the', 'school', 'jmi']
     words = [word for word in s.split() if word not in ignore]
     s = ' '.join(words)
@@ -191,7 +193,7 @@ def _schools():
                 school['address-name'] = a['name']
             schools.append(school)
 
-    return render_template("schools.html", schools=schools, addresses=addresses, matches=matches, byhand=byhand)
+    return render_template("schools.html", schools=sorted_naturally(schools), addresses=addresses, matches=matches, byhand=byhand)
 
 
 if __name__ == "__main__":
