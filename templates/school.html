@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  {% include '_map_link.html' %}
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<div id="map-canvas"></div>
+<div id="pagewrap">
+  <section>
+  <dl>
+  <!--
+"URN","LA (code)","LA (name)","EstablishmentNumber","EstablishmentName","TypeOfEstablishment (name)","EstablishmentStatus (name)","ReasonEstablishmentOpened (name)","OpenDate","ReasonEstablishmentClosed (name)","CloseDate","PhaseOfEducation (name)","StatutoryLowAge","StatutoryHighAge","Boarders (name)","OfficialSixthForm (name)","Gender (name)","ReligiousCharacter (name)","Diocese (name)","AdmissionsPolicy (name)","SchoolCapacity","SpecialClasses (name)","CensusDate","NumberOfPupils","NumberOfBoys","NumberOfGirls","PercentageFSM","TrustSchoolFlag (name)","Trusts (name)","SchoolSponsorFlag (name)","SchoolSponsors (name)","FederationFlag (name)","Federations (name)","UKPRN","FEHEIdentifier","FurtherEducationType (name)","OfstedLastInsp","OfstedSpecialMeasures (name)","LastChangedDate","Street","Locality","Address3","Town","County (name)","Postcode","SchoolWebsite","TelephoneNum","HeadTitle (name)","HeadFirstName","HeadLastName","HeadHonours","HeadPreferredJobTitle","TeenMoth (name)","TeenMothPlaces","CCF (name)","SENPRU (name)","EBD (name)","FTProv (name)","EdByOther (name)","Section41Approved (name)","SEN1 (name)","SEN2 (name)","SEN3 (name)","GOR (name)","AdministrativeWard (name)","ParliamentaryConstituency (name)","UrbanRural (name)","GSSLACode (name)","Easting","Northing","MSOA (name)","LSOA (name)","BoardingEstablishment (name)","PreviousLA (code)","PreviousLA (name)","PreviousEstablishmentNumber"
+-->
+    <dt>URN</dt>
+    <dd><a href="http://www.education.gov.uk/edubase/establishment/summary.xhtml?urn={{edubase.URN}}">{{edubase.URN}}</a></dd>
+
+    <dt>EstablishmentName</dt>
+    <dd><a href="/addresses/name/{{edubase.EstablishmentName}}">{{edubase.EstablishmentName}}</a></dd>
+
+    <dt>Street</dt>
+    <dd><a href="/streets/name/{{edubase.Street}}">{{edubase.Street}}</a></dd>
+
+    {% if edubase['Locality'] %}
+    <dt>Locality</dt>
+    <dd><a href="/streets/locality/{{edubase.Locality}}">{{edubase.Locality}}</a></dd>
+    {% endif %}
+
+    {% if edubase['Address3'] %}
+    <dt>Address3</dt>
+    <dd><a href="/streets/town/{{edubase.Address3}}">{{edubase.Address3}}</a></dd>
+    {% endif %}
+
+    <dt>Town</dt>
+    <dd><a href="/streets/town/{{edubase.Town}}">{{edubase.Town}}</a></dd>
+
+    <dt>Postcode</dt>
+    <dd><a href="/addresses/postcode/{{edubase.Postcode}}">{{edubase.Postcode}}</a></dd>
+
+    <dt>PhaseOfEducation (name)</dt>
+    <dd>{{edubase['PhaseOfEducation (name)']}}</dd>
+
+    <dt>EstablishmentStatus (name)</dt>
+    <dd>{{edubase['EstablishmentStatus (name)']}}</dd>
+
+    {% if edubase['CloseDate'] %}
+    <dt>CloseDate</dt>
+    <dd>{{edubase['CloseDate']}}</dd>
+    {% endif %}
+
+    {% if edubase['Easting'] %}
+    <dt>Easting, Northing</dt>
+    <dd><a href="https://maps.google.com/maps?ll={{ point[0] }},{{ point[1] }}&amp;hl=en&amp;z=18&amp;t=k" target="_blank">{{edubase.Easting}}, {{edubase.Northing}}</a></dd>
+    {% endif %}
+
+    <dt>&nbsp;</dt>
+    <dd><a accesskey="n" href="/school/{{edubase['URN']}}/next">NEXT</a>
+  </dl>
+  </section>
+  <section>
+<dl>
+  <dt>address</dt>
+  <dd><form method="post"><input type="text" name="address" value="{% if address['address'] %}{{address.address}}{% endif %}"></form></dd>
+
+  {% if address['name'] %}
+  <dt>name</dt>
+  <dd><a href="/addresses/name/{{address['name']}}">{{address.name}}</a></dd>
+  {% endif %}
+
+  {% if address['street'] %}
+  <dt>street</dt>
+  <dd><a href="/street/{{address['street']}}">{{address['street']}}</a></dd>
+  {% endif %}
+
+  {% if address['parent-address'] %}
+  <dt>parent-address</dt>
+  <dd><a href="/address/{{address['parent-address']}}">{{address['parent-address']}}</a></dd>
+  {% endif %}
+
+  {% if address['primary-address'] %}
+  <dt>primary-address</dt>
+  <dd><a href="/address/{{address['primary-address']}}">{{address['primary-address']}}</a></dd>
+  {% endif %}
+
+  {% if street['name'] %}
+  <dt>name</dt>
+  <dd><a href="/streets/name/{{street['name']}}">{{street['name']}}</a></dd>
+  {% endif %}
+
+  {% if street['locality'] %}
+  <dt>locality</dt>
+  <dd><a href="/streets/locality/{{street['locality']}}">{{street['locality']}}</a></dd>
+  {% endif %}
+
+  {% if street['town'] %}
+  <dt>town</dt>
+  <dd><a href="/streets/town/{{street['town']}}">{{street['town']}}</a></dd>
+  {% endif %}
+
+  {% if street['administrative-area'] %}
+  <dt>administrative-area</dt>
+  <dd><a href="/streets/administrative-area/{{street['administrative-area']}}">{{street['administrative-area']}}</a></dd>
+  {% endif %}
+
+  {% if address['point'] %}
+  <dt>point</dt>
+  <dd><a href="https://maps.google.com/maps?ll={{ address['ll']|replace('[','')|replace(']','') }}&amp;hl=en&amp;z=18&amp;t=k" target="_blank">{{ address['point'] }}</a></dd>
+  {% endif %}
+
+  {% if address['street-custodian'] %}
+  <dt>street-custodian</dt>
+  <dd><a href="/street-custodian/{{address['street-custodian']}}">{{address['street-custodian']}}</a></dd>
+  {% endif %}
+
+  {% if address['end-date'] %}
+  <dt>address end-date</dt>
+  <dd>{{ address['end-date'] }}</dd>
+  {% endif %}
+
+  {% if address['entry-timestamp'] %}
+  <dt>address entry-timestamp</dt>
+  <dd>{{ address['entry-timestamp'] }}</dd>
+  {% endif %}
+
+  {% if street['entry-timestamp'] %}
+  <dt>street entry-timestamp</dt>
+  <dd>{{ street['entry-timestamp'] }}</dd>
+  {% endif %}
+</dl>
+  </section>
+  <aside>
+  {% if guesses %}
+    <dl>
+    <dt>guesses ({{ guesses|length }})</dt>
+    <dd>
+      <ul>
+      {% for a in guesses %}
+        <li>
+        <form method="post">
+        <a href="/address/{{ a['address'] }}">{{ a ['address'] }} {{ a['name'] }}</a>{% if a['parent-address'] %}, <a href="/address/{{ a['parent-address'] }}">{{ a['parent-address'] }}</a>{% endif %}</a>
+        <input type="hidden" name="address" value="{{ a['address'] }}"><button type="submit" value="submit">&crarr;</button>
+        </form>
+      {% endfor %}
+      </ul>
+    </dd>
+    </dl>
+  {% endif %}
+    {% if address %}
+    <dl>
+      {% if uprn %}
+      <dt>uprn</dt>
+      <dd><a href="/uprn/{{uprn}}" title="UPRN">{{uprn}}</a></dd>
+      {% endif %}
+
+      <dt>source</dt>
+      <dd>{{address['source']}}</dd>
+
+      {% if postcode %}
+      <dt>postcode</dt>
+      <dd><a href="/addresses/postcode/{{postcode}}">{{postcode}}</a></dd>
+      {% endif %}
+
+      {% if premises %}
+      <dt>PREMISES</dt>
+      <dd><a href="{{ premises['url'] }}" title="VOA premises">{{ premises['premises'] }}</a></dd>
+      {% endif %}
+    </dl>
+    <dl>
+    <dt>hierarchy</dt>
+    <dd>
+    <ul>
+      {% for a in children %}
+      <li><a href="/address/{{ a['address'] }}">{{ a['name'] }}</a>
+      {% endfor %}
+
+      <li class="this">{{ address['name'] }}
+
+      {% for a in parents %}
+      <li><a href="/address/{{ a['address'] }}">{{ a['name'] }}</a>
+      {% endfor %}
+    </ul>
+    </dd>
+    </dl>
+    {% endif %}
+    {% if addresses %}
+      {% include '_addresses.html' %}
+    {% endif %}
+    {% if streets %}
+      {% include '_streets.html' %}
+    {% endif %}
+  </aside>
+</div>
+
+{% include '_map.html' %}
+</body>
+</html>

@@ -3,3 +3,4 @@ base32-crockford==0.3.0
 Flask>=0.11.1
 Flask-PyMongo>=0.4.1
 Markdown==2.6.6
+pyproj>=1.9.5.1

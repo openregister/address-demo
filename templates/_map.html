@@ -36,17 +36,35 @@
 
   var markers = [];
 
+  cdot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'cite-icon'});
   adot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'address-icon'});
-  {% for a in addresses %}
-    marker = L.marker({{ a['ll']}}, {icon: adot}).addTo(map).bindPopup('<a href="/address/{{a['address']}}">{{ a['name'] }}{%if a['primary-name']%}, {{a['primary-name']}}{%endif%}</a>');
-    markers.push(marker);
-  {% endfor %}
-
   sdot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'street-icon'});
-  {% for s in streets %}
-    marker = L.marker({{ s['ll']}}, {icon: sdot}).addTo(map).bindPopup('<a href="/street/{{s['street']}}">{{ s['name'] }}</a>');
+  pdot = L.divIcon({iconSize: new L.Point(6, 6), html: '', className: 'point-icon'});
+
+  {% if addresses %}
+    {% for a in addresses %}
+      marker = L.marker({{ a['ll']}}, {icon: adot}).addTo(map).bindPopup('<a href="/address/{{a['address']}}">{{ a['name'] }}{%if a['primary-name']%}, {{a['primary-name']}}{%endif%}</a>');
+      markers.push(marker);
+    {% endfor %}
+  {% endif %}
+
+  {% if streets %}
+    {% for s in streets %}
+      marker = L.marker({{ s['ll']}}, {icon: sdot}).addTo(map).bindPopup('<a href="/street/{{s['street']}}">{{ s['name'] }}</a>');
+      markers.push(marker);
+    {% endfor %}
+  {% endif %}
+
+  {% if point %}
+    marker = L.marker({{point}}, {icon: pdot}).addTo(map).bindPopup('{{point}}');
     markers.push(marker);
-  {% endfor %}
+  {% endif %}
+
+  {% if address %}
+    marker = L.marker({{ address['ll']}}, {icon: cdot}).addTo(map).bindPopup('<a href="/address/{{address['address']}}">{{ address['name'] }}{%if address['primary-name']%}, {{address['primary-name']}}{%endif%}</a>');
+    markers.push(marker);
+  {% endif %}
+
 
   var group = new L.featureGroup(markers);
   map.fitBounds(group.getBounds());

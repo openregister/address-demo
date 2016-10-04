@@ -24,7 +24,8 @@ dt {
   font-family: "Courier New", "Courier";
 }
 
-dd {
+dd,
+input {
   font-size: 24px;
   font-weight: bold;
 }
@@ -85,15 +86,8 @@ tr.matched {
   position: fixed;
 }
 
-.leaflet-div-icon {
-  background: red;
-  border-radius: 6px;
-  border: none;
-  text-align: right;
-}
-
-.leaflet-div-icon:hover {
-   background: black;
+.cite-icon {
+  background-color: green;
 }
 
 .address-icon {
@@ -102,6 +96,10 @@ tr.matched {
 
 .street-icon {
   background-color: blue;
+}
+
+.point-icon {
+  background-color: black;
 }
 
 /*

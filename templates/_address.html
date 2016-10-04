@@ -25,9 +25,9 @@
   <dd><a href="https://maps.google.com/maps?ll={{ address['ll']|replace('[','')|replace(']','') }}&amp;hl=en&amp;z=18&amp;t=k" target="_blank">{{ address['point'] }}</a></dd>
   {% endif %}
 
-  {% if street['street-custodian'] %}
+  {% if address['street-custodian'] %}
   <dt>street-custodian</dt>
-  <dd><a href="/street-custodian/{{street['street-custodian']}}">{{street['street-custodian']}}</a></dd>
+  <dd><a href="/street-custodian/{{address['street-custodian']}}">{{address['street-custodian']}}</a></dd>
   {% endif %}
 
   {% if address['entry-date'] %}
@@ -40,9 +40,8 @@
   <dd>{{ address['end-date'] }}</dd>
   {% endif %}
 
-  {% if street['entry-timestamp'] %}
+  {% if address['entry-timestamp'] %}
   <dt>entry-timestamp</dt>
-  <dd>{{ street['entry-timestamp'] }}</dd>
+  <dd>{{ address['entry-timestamp'] }}</dd>
   {% endif %}
 </dl>
-
