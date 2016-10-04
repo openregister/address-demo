@@ -225,14 +225,15 @@ def _schools_tsv():
     # for school in mongo.db['school-address'].find():
 
     fields = ["school-eng", "address", "address-match"]
-    schools = iter(sorted_naturally(mongo.db['school-address'].find()))
+    items = list(mongo.db['school-address'].find())
+    schools = iter(sorted(items, key=lambda item: item['school-eng']))
     s = StringIO()
     s.write("\t".join(fields) + "\n")
     for row in schools:
         s.write("\t".join([row[field] for field in fields]) + "\n")
 
     output = make_response(s.getvalue())
-    output.headers["Content-Disposition"] = "attachment; filename=school-addresss.tsv"
+    output.headers["Content-Disposition"] = "attachment; filename=school-address.tsv"
     output.headers["Content-type"] = "text/tsv;charset=utf-8"
     return output
 
