@@ -9,7 +9,7 @@ from pymongo import MongoClient
 client = MongoClient(MONGO_URL)
 db = client.get_default_database()
 
-filename = '../school-data/cache/edubase.csv'
+filename = '../../school-data/cache/edubase.csv'
 collection = db['edubase']
 
 for doc in DictReader(open(filename)):
