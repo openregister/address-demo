@@ -4,15 +4,13 @@
 
 import re
 from config import MONGO_URL
-from csv import DictReader
-from base32_crockford import decode
 from pymongo import MongoClient
 
 client = MongoClient(MONGO_URL)
 db = client.get_default_database()
 
-address_fields = ["EstablishmentName", "Street", "Locality", "Address3", "Town", "County (name)"]
-fields = ["test", "uprn", "text", "postcode"]
+address_fields = ["Street", "Locality", "Address3", "Town", "County (name)"]
+fields = ["test", "address", "name", "text", "postcode"]
 sep = "\t"
 
 if __name__ == '__main__':
@@ -27,7 +25,8 @@ if __name__ == '__main__':
             if row and row['URN']:
                 item = {}
                 item['test'] = "school-eng:" + row['URN']
-                item['uprn'] = str(decode(matched['address']))
+                item['address'] = matched['address']
+                item['name'] = row['EstablishmentName']
 
                 item['text'] = ",".join([row[field] for field in address_fields])
                 item['text'] = re.sub(",+", ", ", item['text'])
