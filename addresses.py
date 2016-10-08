@@ -20,7 +20,7 @@ def atoi(text):
 
 def latest(c):
     if not c:
-        return []
+        return None
     l = sorted(list(c), key=lambda e: e['entry-timestamp'], reverse=True)
     return l[0]
 
