@@ -9,10 +9,10 @@ from pymongo import MongoClient
 client = MongoClient(MONGO_URL)
 db = client.get_default_database()
 
-filename = 'school-address.tsv'
+filename = '../../school-data/maps/addresses.tsv'
 collection = db['school-address']
 
 for doc in DictReader(open(filename), delimiter='\t'):
     collection.insert(doc)
 
-collection.ensure_index('URN')
+collection.ensure_index('school-eng')
