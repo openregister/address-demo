@@ -3,7 +3,7 @@
 import csv
 from config import MONGO_DBNAME
 from base32_crockford import encode, decode
-from flask import Flask, render_template, Markup, redirect
+from flask import Flask, render_template, Markup, redirect, abort
 import markdown
 from addresses import mongo, llist, latest, sorted_naturally, streets, addresses, address_parents, postcode_addresses
 import schools
@@ -45,6 +45,8 @@ def _street(usrn):
 def _address(key):
     addresses = llist(mongo.db.address.find({'address': key}))
     address = latest(addresses)
+    if not address:
+        return abort(404)
 
     street = latest(mongo.db.street.find({'street': address['street']}))
 

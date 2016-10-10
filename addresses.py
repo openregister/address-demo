@@ -21,8 +21,10 @@ def atoi(text):
 def latest(c):
     if not c:
         return None
-    l = sorted(list(c), key=lambda e: e['entry-timestamp'], reverse=True)
-    return l[0]
+    l = list(c)
+    if len(l) < 1:
+        return None
+    return sorted(l, key=lambda e: e['entry-timestamp'], reverse=True)[0]
 
 
 def natural_keys(item):
