@@ -24,7 +24,7 @@ def latest(c):
     l = list(c)
     if len(l) < 1:
         return None
-    return sorted(l, key=lambda e: e['entry-timestamp'], reverse=True)[0]
+    return sorted(l, key=lambda e: e.get('entry-timestamp', ''), reverse=True)[0]
 
 
 def natural_keys(item):
