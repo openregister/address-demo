@@ -16,7 +16,7 @@
   </tr>
   {% for s in schools %}
     <tr class="school {{ s['address-match'] }}">
-      <td><a href="/school/{{ s['school-eng'] }}">{{ s['name'] }}</a></td>
+      <td><a href="/school/{{ s['school'] }}">{{ s['name'] }}</a></td>
       <td><a href="/address/{{ s['address'] }}">{{ s['address'] }}</a></td>
       <td>{{ s['address-name'] }} </td>
     </tr>

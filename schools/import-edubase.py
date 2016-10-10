@@ -16,3 +16,4 @@ for doc in DictReader(open(filename)):
     collection.insert(doc)
 
 collection.ensure_index('URN')
+collection.ensure_index('LA (code)')

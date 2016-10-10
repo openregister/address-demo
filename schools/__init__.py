@@ -1,7 +1,7 @@
 import re
 from base32_crockford import decode
 from bson.son import SON
-from flask import Blueprint, request, render_template, redirect, make_response
+from flask import Blueprint, request, render_template, redirect, make_response, abort
 from io import StringIO
 import pyproj
 from addresses import mongo, llist, latest, sorted_naturally, address_parents
@@ -37,16 +37,19 @@ def _schools():
     byhand = 0
     matches = 0
     for school in mongo.db['school-address'].find():
-        edubase = mongo.db['edubase'].find_one({'URN': school['school-eng']})
-        if edubase is not None:
-            school['name'] = edubase['EstablishmentName']
-        if 'address' in school:
-            if ';' in school['address']:
-                school['address'] = school['address'].split(';')[0]
+        edubase = mongo.db['edubase'].find_one({'URN': school['school']})
+        if not edubase:
+            print("unknown school", school['school'])
+            continue
+        school['name'] = edubase['EstablishmentName']
+        if 'address' in school and school['address']:
             if school.get('address-match', '') == "byhand":
                 byhand = byhand + 1
             else:
                 for address in llist(mongo.db.address.find({'address': school['address']})):
+                    if 'name' not in school or 'name' not in school:
+                        print(school)
+                        print(address)
                     addresses.append(address)
                     if n7e(school['name']) == n7e(address['name']):
                         school['address-name'] = address['name']
@@ -56,19 +59,20 @@ def _schools():
                         break
         if 'address' in school and 'address-name' not in school and school['address']:
             a = latest(mongo.db.address.find({'address': school['address']}))
-            school['address-name'] = a['name']
+            if a:
+                school['address-name'] = a['name']
         schools.append(school)
 
     return render_template("schools.html", schools=sorted_naturally(schools), addresses=addresses, matches=matches, byhand=byhand)
 
 
-@schools.route("/schools.tsv")
+@schools.route("/school-address.tsv")
 def _schools_tsv():
     # for school in mongo.db['school-address'].find():
 
-    fields = ["school-eng", "address", "address-match"]
+    fields = ["school", "address", "address-match"]
     items = list(mongo.db['school-address'].find())
-    schools = iter(sorted(items, key=lambda item: item['school-eng']))
+    schools = iter(sorted(items, key=lambda item: item['school']))
     s = StringIO()
     s.write("\t".join(fields) + "\n")
     for row in schools:
@@ -84,18 +88,20 @@ def _schools_tsv():
 def _school(urn):
     if request.method == 'POST':
         mongo.db['school-address'].find_one_and_update(
-            {'school-eng': urn},
-            {'$set': {'school-eng': urn, 'address': request.form['address'], 'address-match': 'byhand'}},
+            {'school': urn},
+            {'$set': {'school': urn, 'address': request.form['address'], 'address-match': 'byhand'}},
             upsert=True)
         return redirect("/school/" + urn, code=303)
 
-    edubase = list(mongo.db.edubase.find({'URN': urn}))[0]
+    edubase = latest(mongo.db.edubase.find({'URN': urn}))
+    if not edubase:
+        return abort(404)
     key = uprn = postcode = ''
     address = street = {}
     addresses = parents = children = streets = []
 
     key = ''
-    doc = mongo.db['school-address'].find_one({'school-eng': urn})
+    doc = mongo.db['school-address'].find_one({'school': urn})
     if doc:
         key = doc['address']
 
@@ -104,11 +110,12 @@ def _school(urn):
         uprn = decode(key)
         addresses = llist(mongo.db.address.find({'address': key}))
         address = latest(addresses)
-        street = latest(mongo.db.street.find({'street': address['street']}))
-        children = sorted_naturally(llist(mongo.db.address.find({'parent-address': key})))
-        parents = address_parents(address)
-        addresses = addresses + children + parents
-        postcode = mongo.db['address-postcode'].find_one({'address': key})['postcode']
+        if address:
+            street = latest(mongo.db.street.find({'street': address['street']}))
+            children = sorted_naturally(llist(mongo.db.address.find({'parent-address': key})))
+            parents = address_parents(address)
+            addresses = addresses + children + parents
+            postcode = mongo.db['address-postcode'].find_one({'address': key})['postcode']
 
     point = []
     if edubase['Easting']:
@@ -144,5 +151,5 @@ def _school(urn):
 @schools.route("/school/<urn>/next")
 def _school_next(urn):
     schools = iter(sorted_naturally(mongo.db['school-address'].find()))
-    school = next(next(schools) for row in schools if row['school-eng'] == urn)
-    return redirect("/school/%s" % (school['school-eng']), code=302)
+    school = next(next(schools) for row in schools if row['school'] == urn)
+    return redirect("/school/%s" % (school['school']), code=302)

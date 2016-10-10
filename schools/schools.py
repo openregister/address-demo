@@ -3,6 +3,8 @@
 import re
 import csv
 
+# a feeble attempt to match addresses
+
 
 def n7e(s):
     s = s.lower()
@@ -36,7 +38,7 @@ if __name__ == "__main__":
             addresses[row['address']] = []
         addresses[row['address']].append(row)
 
-    print("%s\t%s\t%s\t%s" % ('school-eng', 'name', 'address', 'address-match'))
+    print("%s\t%s\t%s\t%s" % ('school', 'name', 'address', 'address-match'))
 
     for school in csv.DictReader(open('schools.tsv1'), delimiter="\t"):
         if school['address-match'] != 'byhand':

@@ -17,14 +17,14 @@ if __name__ == '__main__':
 
     print(sep.join(fields))
 
-    for matched in db['school-address'].find({'$query': {}, '$orderby': {'school-eng': 1}}):
+    for matched in db['school-address'].find({'$query': {}, '$orderby': {'school': 1}}):
 
         if matched.get('address', ''):
-            row = db['edubase'].find_one({'URN': matched['school-eng']})
+            row = db['edubase'].find_one({'URN': matched['school']})
 
             if row and row['URN']:
                 item = {}
-                item['test'] = "school-eng:" + row['URN']
+                item['test'] = "school:" + row['URN']
                 item['address'] = matched['address']
                 item['name'] = row['EstablishmentName']
 
